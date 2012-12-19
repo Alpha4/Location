@@ -57,8 +57,8 @@ public class Main
 	public static void main (String[] args)
 	{
 		/*Initialisation*/
-		List <Proprietaire> proprios;
-		List <Reservation> reservations;
+		List <Proprietaire> proprios=new Vector <Proprietaire>();
+		List <Reservation> reservations=new Vector <Reservation>();
 		deserializer(proprios,reservations);
 	}
 }	

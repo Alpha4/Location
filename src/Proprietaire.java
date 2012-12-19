@@ -15,7 +15,7 @@ public abstract class Proprietaire implements java.io.Serializable
 		this.nom=nom;
 		this.type=type;
 		this.ca=ca;
-		this.proprietes=new Vector <Logement>();
+		this.biens=new Vector <Logement>();
 	}
 	
 	public String getNom()
@@ -23,7 +23,7 @@ public abstract class Proprietaire implements java.io.Serializable
 		return this.nom;
 	}
 	
-	public String getCa()
+	public int getCa()
 	{
 		return this.ca;
 	}
@@ -35,6 +35,11 @@ public abstract class Proprietaire implements java.io.Serializable
 	
 	public String Logement()
 	{
-		return this.nom + for (Logement l : biens) { l.toString; };
+		String logement="";
+		for (Logement l : biens)
+		{
+			logement=logement+" "+this.nom+" "+l.toString();
+		}
+		return logement;
 	}
 }

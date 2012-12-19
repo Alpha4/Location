@@ -39,11 +39,7 @@ public abstract class Logement implements java.io.Serializable
 	}
 	
 	public abstract int calculprix(int nba,int nbe);
-	
-	public int getPrix()
-	{
-		return prix;
-	}
+
 	
 	public String toString()
 	{

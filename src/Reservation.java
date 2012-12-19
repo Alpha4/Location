@@ -17,3 +17,4 @@ public abstract class Reservation implements java.io.Serializable
 		this.adultes=adultes;
 		this.enfants=enfants;		
 	}
+}

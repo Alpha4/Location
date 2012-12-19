@@ -51,6 +51,7 @@ public class Start
 		/*Initialisation*/
 		List <Proprietaire> proprios;
 		List <Reservation> reservations;
+		Scanner sc= new Scanner(System.in);
 		
 		/*Menu*/
 		int choix=1;
@@ -69,12 +70,9 @@ public class Start
 			System.out.println("----------------------");
 			switch(choix)
 			{				
-				case	1 : // Fiches des joueurs
-					System.out.println("Entrer le nom d'un joueur pour voir sa fiche ou 'tous' pour toutes les fiches :");
-					String nom=sc.next();
-					System.out.println("----------------------");
-					c.affich(nom);
-					break;
+				case	1 :
+					System.out.println("DIDN'T READ LOL !");
+				break;
 			}
 		}
 		while(choix>0 && choix<7);
