@@ -1,10 +1,10 @@
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
+import java.io.*;
 
 /**	Classe : Logement
 *	Méthodes :
 */
-public abstract class Logement
+public abstract class Logement implements java.io.Serializable
 {
 	private String type,adresse;
 	private int capacite;

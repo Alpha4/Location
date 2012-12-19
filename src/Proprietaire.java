@@ -1,10 +1,10 @@
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
+import java.io.*;
 
 /**	Classe : Proprietaire
 *	Méthodes :
 */
-public abstract class Proprietaire
+public abstract class Proprietaire implements java.io.Serializable
 {
 	private String nom, type;
 	private List <Logement> proprietes;

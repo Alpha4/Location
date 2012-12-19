@@ -1,6 +1,5 @@
-import java.util.Scanner;
-import java.util.Random;
-
+import java.util.*;
+import java.io.*;
 /**
 *Projet de TP : Gestion d'un parc de logements 
 * @author Aurelien Brisseau et Hippolyte Gandon
