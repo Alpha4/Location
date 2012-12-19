@@ -18,6 +18,26 @@ public abstract class Logement implements java.io.Serializable
 		this.prix=prix;		
 	}
 	
+	public String getType()
+	{
+		return this.type;
+	}
+	
+	public String getAdresse()
+	{
+		return this.adresse;
+	}
+	
+	public int getCapacite()
+	{
+		return this.capacite;
+	}
+	
+	public int getPrix()
+	{
+		return this.prix;
+	}
+	
 	public abstract int calculprix(int nba,int nbe);
 	
 	public int getPrix()
