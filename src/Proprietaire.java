@@ -15,7 +15,7 @@ public abstract class Proprietaire
 		this.nom=nom;
 		this.type=type;
 		this.ca=ca;
-		this.proprietes=new Vector <Logement>();)
+		this.proprietes=new Vector <Logement>();
 	}
 	
 }
