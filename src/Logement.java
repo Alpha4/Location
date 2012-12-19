@@ -24,4 +24,9 @@ public abstract class Logement implements java.io.Serializable
 	{
 		return prix;
 	}
+	
+	public string toString()
+	{
+		
+	}
 }
