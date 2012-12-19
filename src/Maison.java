@@ -8,7 +8,7 @@ public class Maison extends Logement
 {
 	public Maison (String adresse,int prixfixe)
 	{
-		super("Maison",adresse,10,prixfixe);	
+		super("Maison",10,adresse,prixfixe);	
 	}
 	
 	public int calculprix(int nba,int nbe)

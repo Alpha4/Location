@@ -10,7 +10,7 @@ public abstract class Logement
 	private int capacite;
 	private int prix;
 	
-	public Logement (String type,String adresse,int capacite,int prix)
+	public Logement (String type,int capacite,String adresse,int prix)
 	{
 		this.type=type;
 		this.adresse=adresse;
