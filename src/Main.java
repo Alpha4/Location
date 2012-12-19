@@ -3,7 +3,7 @@ import java.io.*;
 /**
 *Projet de TP : Gestion d'un parc de logements 
 * @author Aurelien Brisseau et Hippolyte Gandon
-* @version 2.4
+* @version 1.1
 */
 
 
