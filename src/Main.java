@@ -52,11 +52,8 @@ public class Main
 	public static void main (String[] args)
 	{
 		/*Initialisation*/
-		Maison a=new Maison("La Davière",50);
-		int test=a.calculprix(3,4);
-		System.out.println(test);
-		Logement b=new Chalet("balbla",500);
-		test=b.calculprix(0,0);
-		System.out.println(test);
+		List <Proprietaire> proprios;
+		List <Reservation> reservations;
+		deserializer(proprios,reservations);
 	}
 }	
