@@ -17,7 +17,7 @@ public abstract class Logement implements java.io.Serializable
 	private int capacite;
 	private int prix;
 	
-	/**	Constructeur
+	/** Constructeur
 	* 	avec saisie des données
 	*/
 	public Logement (String type,int capacite,String adresse,int prix)
