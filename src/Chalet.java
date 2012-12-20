@@ -21,6 +21,8 @@ public class Chalet extends Logement
 	*	du nombre d'enfants et d'adultes
 	* @return prix le prix
 	* @see Logement#getPrix()
+	* @param nba nombre d'adultes
+	* @param nbe nombre d'enfants
 	*/
 	public int calculprix(int nba,int nbe)
 	{
