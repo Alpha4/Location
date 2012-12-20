@@ -3,6 +3,8 @@ import java.io.*;
 
 /**	Classe : Maison
 *	Méthodes :
+* 		Constructeur avec saisie et données automatique
+* 		Méthode de calcul du prix
 */
 public class Maison extends Logement
 {	
@@ -17,12 +19,7 @@ public class Maison extends Logement
 		super("Maison",10,adresse,prixfixe);	
 	}
 	
-	/** Méthode permettant de calculer le prix en fonction
-	*	du nombre d'enfants et d'adultes
-	* @return prix le prix
-	* @see Logement#getPrix()
-	* @param nba nombre d'adultes
-	* @param nbe nombre d'enfants
+	/** @inheritDoc
 	*/
 	public int calculprix(int nba,int nbe)
 	{
