@@ -67,22 +67,16 @@ public class Main
 		{
 			System.out.println("*********MENU*********");
 			System.out.println("1) Demande de Réservation");
-			System.out.println("2) Poules");
-			System.out.println("3) Quarts de finale");
-			System.out.println("4) Demi finales");
-			System.out.println("5) Finales");
-			System.out.println("6) Podium");
+			System.out.println("2) Affichage des réservations en cours");
+			System.out.println("3) Affichage des proprétaires (avec leur chiffre d'affaire");
 			System.out.println("7) Sortie du programme");
 			System.out.print("Choix : ");
 			choix=sc.nextInt();
 			System.out.println("----------------------");
 			switch(choix)
 			{				
-				case	1 : // Fiches des joueurs
-					System.out.println("Entrer le nom d'un joueur pour voir sa fiche ou 'tous' pour toutes les fiches :");
-					String nom=sc.next();
-					System.out.println("----------------------");
-					c.affich(nom);
+				case	1 : // Demande de réservation
+					System.out.println("LoL two")
 					break;
 	}
 }	
