@@ -54,6 +54,9 @@ public abstract class Logement implements java.io.Serializable
 		return this.prix;
 	}
 	
+	/** Méthode qui calcul le prix en fonction du nombre d'adultes et d'enfants
+	* @return 
+	*/
 	public abstract int calculprix(int nba,int nbe);
 
 	
