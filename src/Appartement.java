@@ -17,12 +17,7 @@ public class Appartement extends Logement
 		super("Appartement",3,adresse,prix);	
 	}
 	
-	/** Méthode permettant de calculer le prix en fonction
-	*	du nombre d'enfants et d'adultes
-	* @return prix le prix
-	* @see Logement#getPrix()
-	* @param nba nombre d'adultes
-	* @param nbe nombre d'enfants
+	/** @inheritDoc
 	*/
 	public int calculprix(int nba,int nbe)
 	{
