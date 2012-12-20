@@ -42,6 +42,14 @@ public abstract class Proprietaire implements java.io.Serializable
 		return this.ca;
 	}
 	
+	/** getBiens : retourne la liste des biens du propriétaire
+	* @return biens la liste des biens du propriétaire
+	*/
+	public List getBiens()
+	{
+		return this.biens;
+	}
+	
 	/** Méthode toString retournant le nom et
 	*	le chiffre d'affaire du prorpiétaire
 	* @return nom le nom du propriétaire
@@ -66,4 +74,11 @@ public abstract class Proprietaire implements java.io.Serializable
 		}
 		return logement;
 	}
+	
+	/** Méthode ajout
+	*	permettant d'ajouter des logements à la liste des biens d'un propriétaire
+	* 	
+	*	
+	*/
+	public abstract void add(Logement logement);
 }

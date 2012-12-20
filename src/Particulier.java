@@ -11,9 +11,20 @@ public class Particulier extends Proprietaire
 	/** Constructeur
 	*	avec saisie des données
 	*/
-	public Particulier (String nom,String type,int ca)
+	public Particulier (String nom)
 	{
-		super(nom,type,ca);
+		super(nom,"Particulier",0);
 	}
 	
+	public void add(Logement logement)
+	{
+		if (getBiens().size()==0)
+		{
+			getBiens().add(logement);
+		}
+		else
+		{
+			System.out.println("Un particulier ne peut posséder plus d'un logement");
+		}
+	}
 }

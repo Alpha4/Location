@@ -10,7 +10,7 @@ intiales des propriétaires et réservations
 public class Start
 {
 
-	public static void serializer(List proprios,List reservations)
+	public static void serializer(ListeProprio proprios,ListeResa reservations)
 	{
 		try 
 		{
@@ -27,14 +27,14 @@ public class Start
 		}
 	}
 	
-	public static void deserializer(List proprios, List reservations) 
+	public static void deserializer(ListeProprio proprios,ListeResa reservations) 
 	{
 		try
 		{
 			FileInputStream fichier = new FileInputStream("ossau.ser");
 			ObjectInputStream ois = new ObjectInputStream(fichier);
-			proprios= (List) ois.readObject();
-			reservations=(List) ois.readObject();
+			proprios= (ListeProprio) ois.readObject();
+			reservations=(ListeResa) ois.readObject();
 		} 
 		catch (java.io.IOException e)
 		{
@@ -49,8 +49,8 @@ public class Start
 	public static void main (String[] args)
 	{
 		/*Initialisation*/
-		List <Proprietaire> proprios;
-		List <Reservation> reservations;
+		ListeProprio proprios=new ListeProprio();
+		ListeResa reservations=new ListeResa();
 		Scanner sc= new Scanner(System.in);
 		
 		/*Menu*/
@@ -58,20 +58,68 @@ public class Start
 		do
 		{
 			System.out.println("*********MENU*********");
-			System.out.println("1) Fiches des joueurs");
-			System.out.println("2) Poules");
-			System.out.println("3) Quarts de finale");
-			System.out.println("4) Demi finales");
-			System.out.println("5) Finales");
-			System.out.println("6) Podium");
+			System.out.println("1) Créer propriétaire");
+			System.out.println("2) Créer et ajouter un logement à un propriétaire");
 			System.out.println("7) Sortie du programme");
 			System.out.print("Choix : ");
 			choix=sc.nextInt();
 			System.out.println("----------------------");
+			int type=1;
+			String nom="";
 			switch(choix)
 			{				
-				case	1 :
-					System.out.println("DIDN'T READ LOL !");
+				case 1:
+					do
+					{
+						System.out.println("Souhaitez vous créer : ");
+						System.out.println("1) Un particulier propriétaire");
+						System.out.println("2) Une entreprise propriétaire");
+						type=sc.nextInt();
+						System.out.print("Entrez le nom du nouveau propriétaire : ");
+						nom=sc.next();
+						switch(type)
+						{
+							case 1:
+								proprios.add(new Particulier(nom));
+							break;
+							
+							case 2:
+								proprios.add(new Entreprise(nom));
+							break;
+						}
+					}while (type!=1 && type !=2);					
+				break;
+				
+				case 2:
+					do
+					{
+						System.out.println("Souhaitez vous créer : ");
+						System.out.println("1) Un appartement");
+						System.out.println("2) Un chalet");
+						System.out.println("3) Une maison");
+						type=sc.nextInt();
+						System.out.print("Entrez l'adresse du logement : ");
+						String adresse=sc.next();
+						System.out.print("Entrez le prix fixe du logement : ");
+						int prix=sc.nextInt();
+						System.out.print("Saisissez le nom du propriétaire auquel l'ajouter : ");
+						nom=sc.next();
+						
+						switch(type)
+						{
+							case 1: //appartement
+								proprios.get(nom).add(new Appartement(adresse,prix));
+							break;
+							
+							case 2: //chalet
+								proprios.get(nom).add(new Chalet(adresse,prix));
+							break;
+							
+							case 3: //maison
+								proprios.get(nom).add(new Maison(adresse,prix));
+							break;
+						}
+					}while (type>0 && type<4);
 				break;
 			}
 		}

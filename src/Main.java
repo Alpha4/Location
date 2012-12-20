@@ -18,7 +18,7 @@ import java.io.*;
 public class Main
 {
 
-	public static void serializer(List proprios,List reservations)
+	public static void serializer(ListeProprio proprios,ListeResa reservations)
 	{
 		try 
 		{
@@ -35,31 +35,33 @@ public class Main
 		}
 	}
 	
-	public static void deserializer(List proprios, List reservations) 
+	public static void deserializer(ListeProprio proprios,ListeResa reservations) 
 	{
 		try
 		{
 			FileInputStream fichier = new FileInputStream("ossau.ser");
 			ObjectInputStream ois = new ObjectInputStream(fichier);
-			proprios= (List) ois.readObject();
-			reservations=(List) ois.readObject();
+			proprios= (ListeProprio) ois.readObject();
+			reservations=(ListeResa) ois.readObject();
 		} 
-		catch (java.io.IOException e) 
+		catch (java.io.IOException e)
 		{
 			e.printStackTrace();
 		}
-		catch (ClassNotFoundException e) 
+		catch (ClassNotFoundException e)
 		{
 			e.printStackTrace();
 		}
 	}
+
 	/* Programme principal*/
 	public static void main (String[] args)
 	{
 		/*Initialisation*/
-		List <Proprietaire> proprios=new Vector <Proprietaire>();
-		List <Reservation> reservations=new Vector <Reservation>();
-		deserializer(proprios,reservations);
+		ListeProprio proprios = new ListeProprio();
+		ListeResa resas = new ListeResa();
+		deserializer(proprios,resas);
+		Scanner sc= new Scanner(System.in);
 		
 		/*Menu*/
 		int choix=1;
@@ -76,21 +78,17 @@ public class Main
 			switch(choix)
 			{				
 				case	1 : // Demande de réservation
-					System.out.println("LoL too")
-					break;
+					System.out.println("LoL too");
+				break;
 					
 				case	2 : //Affichage des réservations en cours
-					for (Reservation r : reservations)
-					{
-						System.out.println(r.toString());
-					}
-					break;
+					System.out.println(resas.toString());
+				break;
 					
 				case	3 : //Affichage des propriétaires et leur chiffre d'affaire
-					for (Proprietaire p : proprios)
-					{
-						System.out.println(p.toString());
-					}
-					break;
+					System.out.println(proprios.toString());
+				break;
+			}
+		}while(choix>0 && choix<7);
 	}
-}	
+}

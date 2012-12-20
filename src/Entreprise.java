@@ -11,9 +11,13 @@ public class Entreprise extends Proprietaire
 	/** Constructeur
 	*	avec saisie des données
 	*/
-	public Entreprise (String nom,String type,int ca)
+	public Entreprise (String nom)
 	{
-		super(nom,type,ca);
+		super(nom,"Entreprise",0);
 	}
 	
+	public void add(Logement logement)
+	{
+		getBiens().add(logement);
+	}
 }

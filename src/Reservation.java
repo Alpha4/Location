@@ -29,8 +29,8 @@ public abstract class Reservation implements java.io.Serializable
 	* @return prix le prix du logement
 	* @see Logement#getPrix
 	*/
-	public toString()
+	public String toString()
 	{
-		return this.nomloc+logement.getPrix();
+		return this.nomloc+" "+logement.getPrix();
 	}
 }
