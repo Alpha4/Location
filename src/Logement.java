@@ -55,11 +55,16 @@ public abstract class Logement implements java.io.Serializable
 	}
 	
 	/** Méthode qui calcul le prix en fonction du nombre d'adultes et d'enfants
-	* @return 
+	* @return prix le prix du Logement
 	*/
 	public abstract int calculprix(int nba,int nbe);
 
-	
+	/** Méthode toString redéfinie pour renvoyer une phrase contenant toutes les informations
+	* @return type
+	* @return adresse
+	* @return capacite
+	* @return prix
+	*/
 	public String toString()
 	{
 		return "Le logement de type " + this.type + " à l'adresse " + this.adresse + " peut acceuillir " + this.capacite + " personnes et coûte " + this.prix + " la semaine.";
