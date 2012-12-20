@@ -23,23 +23,32 @@ public abstract class Logement implements java.io.Serializable
 	}
 	
 	/** getType : retourne le type de Logement
-	* @return this.type le type de Logement
+	* @return type le type de Logement
 	*/
 	public String getType()
 	{
 		return this.type;
 	}
 	
+	/** getAdresse : retourne l'adresse du Logement
+	* @return adresse l'adresse du Logement
+	*/
 	public String getAdresse()
 	{
 		return this.adresse;
 	}
 	
+	/** getCapacite : retourne la capacité du Logement
+	* @return capacite la capacité du Logement
+	*/
 	public int getCapacite()
 	{
 		return this.capacite;
 	}
 	
+	/** getPrix : retourne le prix du Logement
+	* @return prix le prix du Logement
+	*/
 	public int getPrix()
 	{
 		return this.prix;
