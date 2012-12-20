@@ -16,6 +16,12 @@ public class Chalet extends Logement
 	{
 		super("Chalet",6,adresse,prix);	
 	}
+	
+	/** Méthode permettant de calculer le prix en fonction
+	*	du nombre d'enfants et d'adultes
+	* @return prix le prix
+	* @see Logement#getPrix()
+	*/
 	public int calculprix(int nba,int nbe)
 	{
 		return getPrix();
