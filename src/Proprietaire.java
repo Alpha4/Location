@@ -3,6 +3,11 @@ import java.io.*;
 
 /**	Classe : Proprietaire
 *	Méthodes :
+* 		Constructeur avec saisie des données
+* 		getNom : retourne le nom du propriétaire
+* 		getCa : retourne le chiffre d'affaire du propriétaire
+* 		Méthode retournant le nom et le chiffre d'affaire du propriétair
+* 		Méthode retournant la liste des logements du propriétaire
 */
 public abstract class Proprietaire implements java.io.Serializable
 {
