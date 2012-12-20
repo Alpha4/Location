@@ -19,7 +19,7 @@ public class Appartement extends Logement
 		super("Appartement",3,adresse,prix);	
 	}
 	
-	/** @inheritDoc
+	/** {@inheritDoc}
 	*/
 	public int calculprix(int nba,int nbe)
 	{
