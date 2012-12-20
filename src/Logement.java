@@ -8,7 +8,7 @@ import java.io.*;
 * 		getAdresse : retourne l'adresse du Logement
 * 		getCapacite : retourne la capacité du Logement
 * 		getPrix : retourne le pris du Logement
-* 		Méthode de calcul du prix en fonction du nombre d'adultes et d'enfants
+* 		Méthode de calcul du prix en fonction du nombre d'adultes (nba) et d'enfants (nbe)
 * 		Méthode renvoyant toutes les informations sur le Logement
 */
 public abstract class Logement implements java.io.Serializable
