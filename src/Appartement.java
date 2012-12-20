@@ -3,6 +3,8 @@ import java.util.Random;
 
 /**  Classe : Appartement
 *	Méthodes :
+* 		Constructeur avec saisie et données automatique
+* 		Méthode de calcul du prix
 */
 public class Appartement extends Logement
 {	
