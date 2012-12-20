@@ -4,6 +4,12 @@ import java.io.*;
 /**	Classe : Logement
 *	Méthodes :
 * 		Constructeur avec saisie
+* 		getType : retourne le type de Logement
+* 		getAdresse : retourne l'adresse du Logement
+* 		getCapacite : retourne la capacité du Logement
+* 		getPrix : retourne le pris du Logement
+* 		Méthode de calcul du prix en fonction du nombre d'adultes et d'enfants
+* 		Méthode renvoyant toutes les informations sur le Logement
 */
 public abstract class Logement implements java.io.Serializable
 {
