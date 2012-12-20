@@ -3,6 +3,7 @@ import java.io.*;
 
 /**	Classe : Logement
 *	Méthodes :
+* 		Constructeur avec saisie
 */
 public abstract class Logement implements java.io.Serializable
 {
