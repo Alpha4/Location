@@ -22,6 +22,9 @@ public abstract class Logement implements java.io.Serializable
 		this.prix=prix;		
 	}
 	
+	/** getType : retourne le type de Logement
+	* @return this.type le type de Logement
+	*/
 	public String getType()
 	{
 		return this.type;
