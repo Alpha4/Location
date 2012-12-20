@@ -76,7 +76,21 @@ public class Main
 			switch(choix)
 			{				
 				case	1 : // Demande de réservation
-					System.out.println("LoL two")
+					System.out.println("LoL too")
+					break;
+					
+				case	2 : //Affichage des réservations en cours
+					for (Reservation r : reservations)
+					{
+						System.out.println(r.toString());
+					}
+					break;
+					
+				case	3 : //Affichage des propriétaires et leur chiffre d'affaire
+					for (Proprietaire p : proprios)
+					{
+						System.out.println(p.toString());
+					}
 					break;
 	}
 }	
