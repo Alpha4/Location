@@ -10,7 +10,7 @@ public class Appartement extends Logement
 	/** Constructeur
 	*	avec saisie de l'adresse et du prix
 	*	et automatisation du type et de la capacité
-	* @see Logement#Logement
+	* @see Logement#Logement(String type, int capacite, String adresse, int prix)
 	*/
 	public Appartement (String adresse,int prix)
 	{
@@ -20,7 +20,7 @@ public class Appartement extends Logement
 	/** Méthode permettant de calculer le prix en fonction
 	*	du nombre d'enfants et d'adultes
 	* @return prix le prix
-	* @see getPrix#Logement
+	* @see Logement#getPrix()
 	*/
 	public int calculprix(int nba,int nbe)
 	{
