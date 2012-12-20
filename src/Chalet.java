@@ -3,6 +3,8 @@ import java.io.*;
 
 /**	Classe : Chalet
 *	Méthodes :
+* 		Constructeur avec saisie et données automatique
+* 		Méthode de calcul du prix
 */
 public class Chalet extends Logement
 {	
@@ -17,12 +19,7 @@ public class Chalet extends Logement
 		super("Chalet",6,adresse,prix);	
 	}
 	
-	/** Méthode permettant de calculer le prix en fonction
-	*	du nombre d'enfants et d'adultes
-	* @return prix le prix
-	* @see Logement#getPrix()
-	* @param nba nombre d'adultes
-	* @param nbe nombre d'enfants
+	/** @inheritDoc
 	*/
 	public int calculprix(int nba,int nbe)
 	{
