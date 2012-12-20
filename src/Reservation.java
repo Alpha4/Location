@@ -31,6 +31,6 @@ public abstract class Reservation implements java.io.Serializable
 	*/
 	public toString()
 	{
-		return this.nomloc+
+		return this.nomloc+logement.getPrix();
 	}
 }
