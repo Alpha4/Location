@@ -4,7 +4,7 @@ import java.io.*;
 /**	Classe : Maison
 *	Méthodes :
 * 		Constructeur avec saisie et données automatique
-* 		Méthode de calcul du prix
+* 		Méthode de calcul du prix en fonction du nombre d'adultes et d'enfants
 */
 public class Maison extends Logement
 {	
