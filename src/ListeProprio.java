@@ -82,13 +82,18 @@ public class ListeProprio implements java.io.Serializable
 		List <Proprietaire> temp=new Vector <Proprietaire>();
 		
 		// Création d'une liste avec tous les propriétaires pouvant accueillir le groupe
+		boolean breakFlag = false;
 		for (Proprietaire p : proprios)
 		{
 			if(p.getDisp>nba+nbe)
 			{
-				for() // VERIFICATION DES LOGEMENTS A LA MEME ADRESSE
-				temp.add(p);
+				List <Logement> dispo=new Vector <Logement>();				for (Logement l : p.getBiens()) //On parcourt la liste de ses logements				{					if (l.getDispo() == true) //Et on vérifie leur disponibilité 					{  						dispo.add(l); 					}				}				for (Logement l : dispo) //On parcourt la liste des logements disponible				{ 					List <Logement> meme=new Vector <Logement>(); //On crée une liste avec tous les logements ayant la même adresse 					meme.add(dispo.get(l)); //On lui ajoute un premier logement 					for (Logement log : dispo) //On parcourt à nouveau la liste des logements du propriétaire 					{  						if (log.getAdresse == meme.get(0).getAdresse && log.getPrix != meme.get(0).getPrix)  						{   							//On compare l'adresse et le prix pour ne pas ajouter deux fois le même logement   							meme.add(log); // On l'ajoute à la liste  						}  						for (Logement loge : meme) //On parcourt notre liste de logement ayant la même adresse  						{   							int cat += loge.getCapacite; //Pour calculer leur capacité totale   							if (cat >= nba+nbe) //Et si cette capacité est supérieur au nombrede personne de la réservation   							{    							temp.add(p); //On ajoute le propriétaire des logements à notre liste des propriétaires potentiels
+    							breakFlag = true;    							break;   							}  						}
+  						if(breakFlag){break;} 					}
+ 					if(breakFlag){break;}				}
+				if(breakFlag){break;}
 			}
+			if(breakFlag){break;}
 		}
 		
 		//Création d'un liste contenant les propriétaires aux plus faibles ratio à 100€ près à partir de la liste temporaire
@@ -122,6 +127,12 @@ public class ListeProprio implements java.io.Serializable
 		if (choisi instanceof Particulier)
 		{
 			proposition=choisi.getBiens();
+		}
+		else{
+			for (Logement l : p.getBiens()) //On parcourt la liste de ses logements			{				if (l.getDispo() == true) //Et on vérifie leur disponibilité 				{  					dispo.add(l); 				}			}			for (Logement l : dispo) //On parcourt la liste des logements disponible			{ 				List <Logement> meme=new Vector <Logement>(); //On crée une liste avec tous les logements ayant la même adresse 				meme.add(dispo.get(l)); //On lui ajoute un premier logement 				for (Logement log : dispo) //On parcourt à nouveau la liste des logements du propriétaire 				{  					if (log.getAdresse == meme.get(0).getAdresse && log.getPrix != meme.get(0).getPrix)  					{   						//On compare l'adresse et le prix pour ne pas ajouter deux fois le même logement   						meme.add(log); // On l'ajoute à la liste  					}  					for (Logement loge : meme) //On parcourt notre liste de logement ayant la même adresse  					{   						int cat += loge.getCapacite; //Pour calculer leur capacité totale   						if (cat >= nba+nbe) //Et si cette capacité est supérieur au nombrede personne de la réservation   						{    						temp.add(p); //On ajoute le propriétaire des logements à notre liste des propriétaires potentiels
+    						breakFlag = true;    						break;   						}  					}
+  					if(breakFlag){break;} 				}
+			}
 		}
 	}
 }

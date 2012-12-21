@@ -70,11 +70,11 @@ public class Main
 				break;
 					
 				case	3 : //Affichage des propriétaires et leur chiffre d'affaire
-					System.out.println("Nom      CA");
+					System.out.println("Nom|CA");
 					System.out.println(listep.toString());
 				break;
 				
-				default:
+				default: //on enregistre les changements dans les fichiers
 					listep.serializer();
 					lister.serializer();
 				break;
