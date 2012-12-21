@@ -36,7 +36,7 @@ public abstract class Reservation implements java.io.Serializable
 		int prix=0;
 		for (Logement l : logements)
 		{
-			prix+=l.calculPrix(adultes,enfants)
+			prix+=l.calculPrix(adultes,enfants);
 		}
 		return this.nomloc+" "+prix;
 	}
@@ -52,7 +52,7 @@ public abstract class Reservation implements java.io.Serializable
 		int prix=0;
 		for (Logement l : logements)
 		{
-			prix+=l.calculPrix(adultes,enfants)
+			prix+=l.calculPrix(adultes,enfants);
 		}
 		return this.nomloc+" "+logement.calculPrix(adultes,enfants);
 	}
@@ -65,7 +65,7 @@ public abstract class Reservation implements java.io.Serializable
 	*/
 	public void valide(ListeProprio listep)
 	{
-		Proprietaire bailleur=listep.get(nomprop)
+		Proprietaire bailleur=listep.get(nomprop);
 		for (Logement l:logements)
 		{
 			l.reserved();

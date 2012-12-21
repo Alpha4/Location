@@ -29,13 +29,13 @@ public abstract class Logement implements java.io.Serializable
 		this.adresse=adresse;
 		this.capacite=capacite;
 		this.prix=prix;
-		this.dispo=true	
+		this.dispo=true;
 	}
 	
 	/** getDispo : retourne la disponibilité du logement
 	* @return dispo  disponibilité du logement
 	*/
-	public getDispo()
+	public boolean getDispo()
 	{
 		return dispo;
 	}
