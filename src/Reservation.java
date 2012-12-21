@@ -5,6 +5,7 @@ import java.io.*;
 *	Méthodes :
 * 		Constructeur avec saisie des données
 * 		Méthode retournant le nom du locataire principal et le prix
+* 		Méthode mettant à jour la disponibilité simple et totale et le chiffre d'affaire
 */
 public abstract class Reservation implements java.io.Serializable
 {
