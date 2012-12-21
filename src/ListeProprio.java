@@ -145,7 +145,7 @@ public class ListeProprio implements java.io.Serializable
 				{
 					int cat=l.getCapacite(0);					for (Logement log : dispo) //On parcourt à nouveau la liste des logements du propriétaire					{
 						if (log.getAdresse == l.getAdresse && log.getPrix != l.getPrix)						{							//On compare l'adresse et le prix pour ne pas ajouter deux fois le même logement							prop.add(log); // On l'ajoute à la liste
-							cat+=log.getCapacite()
+							cat+=log.getCapacite();
 							if(cat>=nba+nbe)
 							{
 								propositions.add(prop);
