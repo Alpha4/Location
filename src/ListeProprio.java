@@ -127,7 +127,7 @@ public class ListeProprio implements java.io.Serializable
 		
 		if (choisi instanceof Particulier)
 		{
-			proposition.add
+			proposition=choisi.getBiens();
 		}
 	}
 }
