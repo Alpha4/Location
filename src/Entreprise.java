@@ -13,9 +13,11 @@ public class Entreprise extends Proprietaire
 	*/
 	public Entreprise (String nom)
 	{
-		super(nom,"Entreprise",0);
+		super(nom,"Entreprise");
 	}
 	
+	/** {@inheritDoc}
+	*/
 	public void add(Logement logement)
 	{
 		getBiens().add(logement);

@@ -13,14 +13,19 @@ public class Particulier extends Proprietaire
 	*/
 	public Particulier (String nom)
 	{
-		super(nom,"Particulier",0);
+		super(nom,"Particulier");
 	}
 	
+	/** Constructeur
+	*	du vide
+	*/
 	public Particulier ()
 	{
 		this("vide");
 	}
 	
+	/** {@inheritDoc}
+	*/
 	public void add(Logement logement)
 	{
 		if (getBiens().size()==0)

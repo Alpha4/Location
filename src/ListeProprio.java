@@ -34,16 +34,10 @@ public class ListeProprio implements java.io.Serializable
 		return str;
 	}
 	
-	public String toStringLogement()
-	{
-		String str="Nom|Type|Adresse|Prix\n";
-		for (Proprietaire p : proprios)
-		{
-			str=str+p.toStringLogement()+"\n";
-		}
-		return str;
-	}
-	
+	/** Méthode get
+	* @param nom nom du proprietaire recherché
+	* @return res proprietaire recherché ou particulier 'vide' si pas trouvé
+	*/
 	public Proprietaire get(String nom)
 	{
 		Proprietaire res=new Particulier();

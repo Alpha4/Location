@@ -10,12 +10,15 @@ import java.io.*;
 * 		getPrix : retourne le pris du Logement
 * 		Méthode de calcul du prix en fonction du nombre d'adultes (nba) et d'enfants (nbe)
 * 		Méthode renvoyant toutes les informations sur le Logement
+* 		getDispo : retourne la disponibilité du logement
+* 		reserved : met dispo à faux
 */
 public abstract class Logement implements java.io.Serializable
 {
 	private String type,adresse;
 	private int capacite;
 	private int prix;
+	private boolean dipso;
 	
 	/** Constructeur
 	* 	avec saisie des données
@@ -25,7 +28,24 @@ public abstract class Logement implements java.io.Serializable
 		this.type=type;
 		this.adresse=adresse;
 		this.capacite=capacite;
-		this.prix=prix;		
+		this.prix=prix;
+		this.dispo=true	
+	}
+	
+	/** getDispo : retourne la disponibilité du logement
+	* @return dispo  disponibilité du logement
+	*/
+	public getDispo()
+	{
+		return dispo;
+	}
+	
+	/** reserved : met dispo à faux
+	* i.e.: logement réservé
+	*/
+	public void reserved()
+	{
+		dispo=false;
 	}
 	
 	/** getType : retourne le type de Logement

@@ -18,18 +18,27 @@ public class ListeResa implements java.io.Serializable
 		this.resas=new Vector <Reservation>();
 	}
 	
+	/** Méthode toString retournant 
+	* 	toutes les réservations (nom du locataire, prix)
+	* @see Reservation#toString()  
+	*/
 	public String toString()
 	{
-		String str="";
+		String str="Nom|Prix\n";
 		for (Reservation r : resas)
 		{
-			str=str+r.toString();
+			str=str+r.toString()+"\n";
 		}
 		return str;
 	}
 	
+	/** Méthode add  
+	* 	ajoute la réservation à la liste et la valide
+	* @see Reservation#valide()  
+	*/
 	public void add(Reservation res)
 	{
+		res.valide();
 		resas.add(res);
 	}
 	

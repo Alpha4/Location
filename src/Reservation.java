@@ -56,9 +56,21 @@ public abstract class Reservation implements java.io.Serializable
 		}
 		return this.nomloc+" "+logement.calculPrix(adultes,enfants);
 	}
-	public void valide()
+	
+	/** Méthode valide 
+	*	mise à jour de:
+	* 	la disponibilité des logements
+	*	le chiffre d'affaire du proprietaire
+	*	la disponibilite totale du proprietaire
+	*/
+	public void valide(ListeProprio listep)
 	{
-		//update du booléen des logements
-		//update du CA du proprio
+		Proprietaire bailleur=listep.get(nomprop)
+		for (Logement l:logements)
+		{
+			l.reserved();
+			bailleur.addCa(l.calculPrix(adultes,enfants));
+			bailleur.addDisp(-(adultes+enfants));
+		}
 	}
 }
