@@ -19,5 +19,7 @@ public class Entreprise extends Proprietaire
 	public void add(Logement logement)
 	{
 		getBiens().add(logement);
+		addAccueil(logement.getCapacite());
+		addDisp(logement.getCapacite());
 	}
 }

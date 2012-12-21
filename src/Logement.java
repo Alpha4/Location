@@ -77,6 +77,6 @@ public abstract class Logement implements java.io.Serializable
 	*/
 	public String toString()
 	{
-		return "Le logement de type " + this.type + " à l'adresse " + this.adresse + " peut acceuillir " + this.capacite + " personnes et coûte " + this.prix + " la semaine.";
+		return this.type+" "+this.adresse+" "+this.prix+"€";
 	}
 }

@@ -37,7 +37,6 @@ public class ListeResa implements java.io.Serializable
 	{
 		try 
 		{	
-			//Propriétaires
 			FileOutputStream fichier = new FileOutputStream("reserv.ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fichier);
 			oos.writeObject(this);
@@ -49,4 +48,5 @@ public class ListeResa implements java.io.Serializable
 			e.printStackTrace();
 		}
 	}
+	
 }

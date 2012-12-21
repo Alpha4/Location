@@ -26,6 +26,8 @@ public class Particulier extends Proprietaire
 		if (getBiens().size()==0)
 		{
 			getBiens().add(logement);
+			addAccueil(logement.getCapacite());
+			addDisp(logement.getCapacite());
 		}
 		else
 		{

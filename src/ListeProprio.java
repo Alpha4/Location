@@ -16,6 +16,7 @@ public class ListeProprio implements java.io.Serializable
 	public ListeProprio ()
 	{
 		this.proprios=new Vector <Proprietaire>();
+		static Random rand=new Random();
 	}
 	
 	
@@ -35,7 +36,7 @@ public class ListeProprio implements java.io.Serializable
 	
 	public String toStringLogement()
 	{
-		String str="";
+		String str="Nom|Type|Adresse|Prix\n";
 		for (Proprietaire p : proprios)
 		{
 			str=str+p.toStringLogement()+"\n";
@@ -65,7 +66,6 @@ public class ListeProprio implements java.io.Serializable
 	{
 		try 
 		{	
-			//Propriétaires
 			FileOutputStream fichier = new FileOutputStream("proprios.ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fichier);
 			oos.writeObject(this);
@@ -75,6 +75,24 @@ public class ListeProprio implements java.io.Serializable
 		catch (java.io.IOException e) 
 		{
 			e.printStackTrace();
+		}
+	}
+	
+	public List proposition(int nba,int nbe)
+	{
+		List <Logement> proposition=new Vector <Logement>();
+		List <Proprietaire> choix=new Vector <Proprietaire>();
+		
+		//Création de la liste des propriétaires aux plus faible ratio ayant la disponibilité d'accueillir 
+		choix.add(proprios.get(0));
+		for (Proprietaire p : proprios)
+		{
+			int actuel=choix.get(0).getRatio();
+			int test=p.getRatio();
+			if(p.getDisp<nba+nbe)
+			{
+				
+			}
 		}
 	}
 }

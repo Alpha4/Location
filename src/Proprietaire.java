@@ -11,9 +11,9 @@ import java.io.*;
 */
 public abstract class Proprietaire implements java.io.Serializable
 {
-	private String nom, type;
-	private List <Logement> biens;
-	private int ca; //chiffre d'affaire
+	private String nom, type; // nom du propriétaire, son type : particulier ou entreprise
+	private List <Logement> biens; //liste des logements que possède le propriétaire
+	private int ca,accueil,disp; //chiffre d'affaire, capacite d'accueil totale, capacite disponible
 	
 	/** Constructeur
 	*	avec saisie des données
@@ -24,6 +24,8 @@ public abstract class Proprietaire implements java.io.Serializable
 		this.type=type;
 		this.ca=ca;
 		this.biens=new Vector <Logement>();
+		this.accueil=0;
+		this.disp=0;
 	}
 	
 	/** getNom : retourne le nom du propriétaire
@@ -40,6 +42,38 @@ public abstract class Proprietaire implements java.io.Serializable
 	public int getCa()
 	{
 		return this.ca;
+	}
+		
+	/** addAccueil : permet de mettre à jour la capacité d'accueil d'un propriétaire
+	* utile lors de l'ajout d'un logement à la liste biens
+	*/
+	public void addAccueil(int nb)
+	{
+		accueil=accueil+nb;
+	}
+	
+	/** addDisp: permet de mettre à jour la capacité disponible d'un propriétaire
+	* utile lors de l'ajout d'un logement à la liste biens
+	*/
+	public void addDisp(int nb)
+	{
+		disp+=nb;
+	}
+	
+	/** getRatio : retourne le ratio CA/capacité d'accueil du propriétaire
+	* @return accueil retourne la capacité d'accueil du propriétaire
+	*/
+	public int getRatio()
+	{
+		return this.ca/this.accueil;
+	}
+	
+	/** getDisp : retourne la capacite d'acceuil disponible du propriétaire
+	* @return accueil retourne la capacité d'accueil du propriétaire
+	*/
+	public int getDisp()
+	{
+		return this.disp;
 	}
 	
 	/** getBiens : retourne la liste des biens du propriétaire

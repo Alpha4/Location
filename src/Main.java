@@ -24,6 +24,7 @@ public class Main
 		ListeProprio listep = new ListeProprio();
 		ListeResa lister = new ListeResa();
 		
+		//Lecture des fichiers
 		try
 		{
 			FileInputStream f1 = new FileInputStream("reserv.ser");
@@ -53,7 +54,7 @@ public class Main
 			System.out.println("*********MENU*********");
 			System.out.println("1) Demande de Réservation");
 			System.out.println("2) Affichage des réservations en cours");
-			System.out.println("3) Affichage des proprétaires (avec leur chiffre d'affaire");
+			System.out.println("3) Affichage des proprétaires (avec leur chiffre d'affaire)");
 			System.out.println("7) Sortie du programme");
 			System.out.print("Choix : ");
 			choix=sc.nextInt();
@@ -69,7 +70,13 @@ public class Main
 				break;
 					
 				case	3 : //Affichage des propriétaires et leur chiffre d'affaire
+					System.out.println("Nom      CA");
 					System.out.println(listep.toString());
+				break;
+				
+				default:
+					listep.serializer();
+					lister.serializer();
 				break;
 			}
 		}while(choix>0 && choix<7);
