@@ -21,7 +21,7 @@ public class Maison extends Logement
 	
 	/** {@inheritDoc}
 	*/
-	public int calculprix(int nba,int nbe)
+	public int calculPrix(int nba,int nbe)
 	{
 		return (int)getPrix()*(nba+(nbe/2));
 	}

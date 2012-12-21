@@ -17,7 +17,8 @@ public class Particulier extends Proprietaire
 	}
 	
 	/** Constructeur
-	*	du vide
+	*	vide
+	*	utilisé pour remonter une abscence de retour :S 
 	*/
 	public Particulier ()
 	{

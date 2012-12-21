@@ -36,9 +36,9 @@ public class ListeResa implements java.io.Serializable
 	* 	ajoute la réservation à la liste et la valide
 	* @see Reservation#valide()  
 	*/
-	public void add(Reservation res)
+	public void add(ListeProprio listep,Reservation res)
 	{
-		res.valide();
+		res.valide(listep);
 		resas.add(res);
 	}
 	

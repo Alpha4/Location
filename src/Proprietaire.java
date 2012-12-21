@@ -93,7 +93,7 @@ public abstract class Proprietaire implements java.io.Serializable
 	/** getBiens : retourne la liste des biens du propriétaire
 	* @return biens la liste des biens du propriétaire
 	*/
-	public List getBiens()
+	public List<Logement> getBiens()
 	{
 		return this.biens;
 	}

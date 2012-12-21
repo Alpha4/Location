@@ -7,7 +7,7 @@ import java.io.*;
 * 		Méthode retournant le nom du locataire principal et le prix
 * 		Méthode mettant à jour la disponibilité simple et totale et le chiffre d'affaire
 */
-public abstract class Reservation implements java.io.Serializable
+public class Reservation implements java.io.Serializable
 {
 	private List <Logement> logements;
 	private String nomloc;
@@ -24,6 +24,15 @@ public abstract class Reservation implements java.io.Serializable
 		this.adultes=adultes;
 		this.enfants=enfants;
 		this.nomprop=nomprop;	
+	}
+	
+	/** getNomprop 
+	*	retourne le nom du proprietaire
+	* @return nomprop le nom du proprietaire
+	*/
+	public String getNomprop()
+	{		
+		return this.nomprop;
 	}
 	
 	/** Méthode toString retournant le nom du
@@ -51,11 +60,14 @@ public abstract class Reservation implements java.io.Serializable
 	public String propositionToString()
 	{
 		int prix=0;
+		String str="Propriétaire : "+nomprop+"\n";
 		for (Logement l : logements)
 		{
 			prix+=l.calculPrix(adultes,enfants);
+			str+=l.getType()+" "+l.getAdresse()+"\n";
 		}
-		return this.nomloc+" "+logement.calculPrix(adultes,enfants);
+		
+		return str+"Prix : "+prix;
 	}
 	
 	/** Méthode valide 
@@ -71,7 +83,7 @@ public abstract class Reservation implements java.io.Serializable
 		{
 			l.reserved();
 			bailleur.addCa(l.calculPrix(adultes,enfants));
-			bailleur.addDisp(-(adultes+enfants));
+			bailleur.addDisp(-(l.getCapacite()));
 		}
 	}
 }

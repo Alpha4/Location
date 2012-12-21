@@ -85,10 +85,10 @@ public class ListeProprio implements java.io.Serializable
 		boolean breakFlag = false;
 		for (Proprietaire p : proprios)
 		{
-			if(p.getDisp>nba+nbe)
+			if(p.getDisp()>nba+nbe)
 			{
-				List <Logement> dispo=new Vector <Logement>();				for (Logement l : p.getBiens()) //On parcourt la liste de ses logements				{					if (l.getDispo() == true) //Et on vérifie leur disponibilité					{						dispo.add(l);					}				}				for (Logement l : dispo) //On parcourt la liste des logements disponible				{					List <Logement> meme=new Vector <Logement>(); //On crée une liste avec tous les logements ayant la même adresse					meme.add(dispo.get(l)); //On lui ajoute un premier logement					for (Logement log : dispo) //On parcourt à nouveau la liste des logements du propriétaire					{						if (log.getAdresse == meme.get(0).getAdresse && log.getPrix != meme.get(0).getPrix)						{							//On compare l'adresse et le prix pour ne pas ajouter deux fois le même logement							meme.add(log); // On l'ajoute à la liste						}
-						int cat=0;						for (Logement loge : meme) //On parcourt notre liste de logement ayant la même adresse						{							cat += loge.getCapacite; //Pour calculer leur capacité totale							if (cat >= nba+nbe) //Et si cette capacité est supérieur au nombrede personne de la réservation							{								temp.add(p); //On ajoute le propriétaire des logements à notre liste des propriétaires potentiels
+				List <Logement> dispo=new Vector <Logement>();				for (Logement l : p.getBiens()) //On parcourt la liste de ses logements				{					if (l.getDispo() == true) //Et on vérifie leur disponibilité					{						dispo.add(l);					}				}				for (Logement l : dispo) //On parcourt la liste des logements disponible				{					List <Logement> meme=new Vector <Logement>(); //On crée une liste avec tous les logements ayant la même adresse					meme.add(l); //On lui ajoute un premier logement					for (Logement log : dispo) //On parcourt à nouveau la liste des logements du propriétaire					{						if (log.getAdresse() == meme.get(0).getAdresse() && log.getPrix() != meme.get(0).getPrix())						{							//On compare l'adresse et le prix pour ne pas ajouter deux fois le même logement							meme.add(log); // On l'ajoute à la liste						}
+						int cat=0;						for (Logement loge : meme) //On parcourt notre liste de logement ayant la même adresse						{							cat += loge.getCapacite(); //Pour calculer leur capacité totale							if (cat >= nba+nbe) //Et si cette capacité est supérieur au nombrede personne de la réservation							{								temp.add(p); //On ajoute le propriétaire des logements à notre liste des propriétaires potentiels
 								breakFlag = true;							break;							}						}
 						if(breakFlag){break;}					}
 					if(breakFlag){break;}				}
@@ -98,64 +98,72 @@ public class ListeProprio implements java.io.Serializable
 		}
 		
 		//Création d'un liste contenant les propriétaires aux plus faibles ratio à 100€ près à partir de la liste temporaire
-		
-		choix.add(temp.get(0)); // on ajoute le premier proprietaire à la lsite comme premier point de comparaison
-		
-		int lastmin=choix.get(0).getRatio();// le ratio minimum pour l'instant est le sien
-		for (Proprietaire p: temp)
+		if (temp.size()!=0) // on vérifie qu'il existe bien des proprietaires pouvant loger ce nombre de personne
 		{
-			int actuel = min(lastmin,choix.get(choix.size()).getRatio()); // minimum actuel de la liste
-			int test = p.getRatio(); // ratio de p
-			if (actuel-test<100) // la différence de ratio entre p et le min est inférieur à 100
+			choix.add(temp.get(0)); // on ajoute le premier proprietaire à la lsite comme premier point de comparaison
+		
+			int lastmin=choix.get(0).getRatio();// le ratio minimum pour l'instant est le sien
+			for (Proprietaire p: temp)
 			{
-				choix.add(p); // on ajoute donc p à la liste
-				if (test<actuel)
+				int actuel = Math.min(lastmin,choix.get(choix.size()-1).getRatio()); // minimum actuel de la liste
+				int test = p.getRatio(); // ratio de p
+				if (actuel-test<100) // la différence de ratio entre p et le min est inférieur à 100
 				{
-					lastmin=test; // si le ratio de p est inférieur au minimum il est le nouveau minimum
-				}
-			}
-			else if (actuel-test >100 && test<actuel) // le ratio de p est inférieur de plus de 100€ par rapport au minimum
-			{
-				choix.clear();// aucun proprietaire de la liste est à moins de 100€ de différence de ratio
-				choix.add(p); // on ajoute p à la liste
-				lastmin=test; // son ratio est le nouveau minimum
-			}
-		}
-		
-		//On tire au sort le proprietaire dans cette liste
-		Proprietaire choisi=choix.get(rand.nextInt(choix.size()));
-		
-		if (choisi instanceof Particulier)
-		{
-			proposition=choisi.getBiens();
-		}
-		else // on crée une liste contenant les différentes possibilités en essayant d'être au plus proche du nombre de personnes. Mais ce n'est pas le cas (il faudrait pour cela être spur que les logement sont triés par ordre croissant de capacite) Cette fonction ne marche donc pas parfaitement de ce poit de vue.  
-		{
-			List <Logement> dispo=new Vector <Logement>();
-			for (Logement l : choisi.getBiens()) //On parcourt la liste de ses logements			{				if (l.getDispo() == true) //Et on vérifie leur disponibilité				{					dispo.add(l);				}			}
-			List <List> propositions=new Vector<List>();			for (Logement l : dispo) //On parcourt la liste des logements disponible			{
-				List <Logement> prop=new Vector<Logement>();
-				prop.add(l);
-				if(l.getCapacite>=nba+nbe)
-				{
-					propositions.add(prop);
-					continue;
-				}
-				else
-				{
-					int cat=l.getCapacite(0);					for (Logement log : dispo) //On parcourt à nouveau la liste des logements du propriétaire					{
-						if (log.getAdresse == l.getAdresse && log.getPrix != l.getPrix)						{							//On compare l'adresse et le prix pour ne pas ajouter deux fois le même logement							prop.add(log); // On l'ajoute à la liste
-							cat+=log.getCapacite();
-							if(cat>=nba+nbe)
-							{
-								propositions.add(prop);
-								break;
-							}						}						
+					choix.add(p); // on ajoute donc p à la liste
+					if (test<actuel)
+					{
+						lastmin=test; // si le ratio de p est inférieur au minimum il est le nouveau minimum
 					}
 				}
+				else if (actuel-test >100 && test<actuel) // le ratio de p est inférieur de plus de 100€ par rapport au minimum
+				{
+					choix.clear();// aucun proprietaire de la liste est à moins de 100€ de différence de ratio
+					choix.add(p); // on ajoute p à la liste
+					lastmin=test; // son ratio est le nouveau minimum
+				}
 			}
-			proposition=propositions.get(rand.nextInt(propositions.size()));
+		
+		//On tire au sort le proprietaire dans cette liste
+			Proprietaire choisi=choix.get(rand.nextInt(choix.size()));
+			if (choisi instanceof Particulier)
+			{
+				proposition=choisi.getBiens();
+			}
+			else // on crée une liste contenant les différentes possibilités en essayant d'être au plus proche du nombre de personnes. Mais ce n'est pas le cas (il faudrait pour cela être spur que les logement sont triés par ordre croissant de capacite) Cette fonction ne marche donc pas parfaitement de ce poit de vue.  
+			{
+				List <Logement> dispo=new Vector <Logement>();
+				for (Logement l : choisi.getBiens()) //On parcourt la liste de ses logements				{					if (l.getDispo() == true) //Et on vérifie leur disponibilité					{						dispo.add(l);					}				}
+				List <List<Logement>> propositions=new Vector<List<Logement>>();				for (Logement l : dispo) //On parcourt la liste des logements disponible				{
+					List <Logement> prop=new Vector<Logement>();
+					prop.add(l);
+					if(l.getCapacite()>=nba+nbe)
+					{
+						propositions.add(prop);
+						continue;
+					}
+					else
+					{
+						int cat=l.getCapacite();						for (Logement log : dispo) //On parcourt à nouveau la liste des logements du propriétaire						{
+							if (log.getAdresse() == l.getAdresse() && log.getPrix() != l.getPrix())							{								//On compare l'adresse et le prix pour ne pas ajouter deux fois le même logement								prop.add(log); // On l'ajoute à la liste
+								cat+=log.getCapacite();
+								if(cat>=nba+nbe)
+								{
+									propositions.add(prop);
+									break;
+								}							}						
+						}
+					}
+				}
+				proposition=propositions.get(rand.nextInt(propositions.size()));
+			}
+			Reservation r=new Reservation(proposition,nomloc,nba,nbe,choisi.getNom());
+			return r;
 		}
-		return new Reservation(proposition,nomloc,nba,nbe,proposition.get(0).getNom());
+		else //s'il n'ya pas de proprietaire pour loger autant de gens
+		{
+			proposition.add(new Appartement());
+			Reservation r=new Reservation(proposition,"vide",nba,nbe,"vide");
+			return r;
+		}
 	}
 }

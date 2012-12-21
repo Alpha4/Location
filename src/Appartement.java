@@ -19,9 +19,19 @@ public class Appartement extends Logement
 		super("Appartement",3,adresse,prix);	
 	}
 	
+	/** Constructeur
+	*	vide
+	*	utilisé pour remonter une abscence de retour :S 
+	* @see Logement#Logement(String type, int capacite, String adresse, int prix)
+	*/
+	public Appartement ()
+	{
+		super("vide",3,"vide",0);	
+	}
+	
 	/** {@inheritDoc}
 	*/
-	public int calculprix(int nba,int nbe)
+	public int calculPrix(int nba,int nbe)
 	{
 		return getPrix();
 	}

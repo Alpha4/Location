@@ -46,8 +46,6 @@ public class Start
 		listep.get("MonsterCie").add(new Chalet("35, boulevard Bob Wazowski",500));
 		listep.get("MonsterCie").add(new Chalet("5, avenue Jacques Sullivan",500));
 		
-		System.out.println(listep.toString());
-		
 		/*Création des fichier*/
 		listep.serializer();
 		lister.serializer();

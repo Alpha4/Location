@@ -21,7 +21,7 @@ public class Chalet extends Logement
 	
 	/** {@inheritDoc}
 	*/
-	public int calculprix(int nba,int nbe)
+	public int calculPrix(int nba,int nbe)
 	{
 		return getPrix();
 	}

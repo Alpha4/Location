@@ -18,7 +18,7 @@ public abstract class Logement implements java.io.Serializable
 	private String type,adresse;
 	private int capacite;
 	private int prix;
-	private boolean dipso;
+	private boolean dispo;
 	
 	/** Constructeur
 	* 	avec saisie des données
@@ -86,7 +86,7 @@ public abstract class Logement implements java.io.Serializable
 	* @param nba nombre d'adultes
 	* @param nbe nombre d'enfants
 	*/
-	public abstract int calculprix(int nba,int nbe);
+	public abstract int calculPrix(int nba,int nbe);
 
 	/** Méthode toString redéfinie pour renvoyer une phrase
 	 * 	contenant toutes les informations sur le Logement

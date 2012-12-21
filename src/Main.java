@@ -55,7 +55,7 @@ public class Main
 			System.out.println("1) Demande de Réservation");
 			System.out.println("2) Affichage des réservations en cours");
 			System.out.println("3) Affichage des proprétaires (avec leur chiffre d'affaire)");
-			System.out.println("7) Sortie du programme");
+			System.out.println("4) Sortie du programme");
 			System.out.print("Choix : ");
 			choix=sc.nextInt();
 			System.out.println("----------------------");
@@ -68,12 +68,26 @@ public class Main
 					int nbe=sc.nextInt();
 					System.out.println("Quel le nom du locataire ?");
 					String nomloc=sc.next();
-					Reservation r=proposition(nba,nbe,nomloc).propositionToString();
-					System.out.println("Valider ? (y/n)");
-					String yn=sc.next();
-					if (yn="y")
+					Reservation r=listep.proposition(nba,nbe,nomloc);
+					if (r.getNomprop().equals("vide"))
 					{
-						lister.add(r);
+						System.out.println("Désolé, nous ne pouvons satisfaire votre demande.");
+					}
+					else
+					{
+						System.out.println(r.propositionToString());
+						System.out.println("Valider ? (oui/non)");
+						String ouinon=sc.next();
+						if (ouinon.equals("oui"))
+						{
+							
+							lister.add(listep,r);
+							System.out.println("Validé.");
+						}
+						else
+						{
+							System.out.println("Retour au menu");
+						}
 					}
 				break;
 					
@@ -91,6 +105,6 @@ public class Main
 					lister.serializer();
 				break;
 			}
-		}while(choix>0 && choix<7);
+		}while(choix>0 && choix<4);
 	}
 }
