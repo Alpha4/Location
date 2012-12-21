@@ -32,4 +32,21 @@ public class ListeResa implements java.io.Serializable
 	{
 		resas.add(res);
 	}
+	
+	public void serializer()
+	{
+		try 
+		{	
+			//Propriétaires
+			FileOutputStream fichier = new FileOutputStream("reserv.ser");
+			ObjectOutputStream oos = new ObjectOutputStream(fichier);
+			oos.writeObject(this);
+			oos.flush();
+			oos.close();
+		}
+		catch (java.io.IOException e) 
+		{
+			e.printStackTrace();
+		}
+	}
 }

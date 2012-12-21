@@ -57,7 +57,7 @@ public abstract class Proprietaire implements java.io.Serializable
 	*/
 	public String toString()
 	{
-		return this.nom + this.ca;
+		return this.nom + " "+this.ca;
 	}
 	
 	/** Méthode Logement retournant la liste des
@@ -65,12 +65,12 @@ public abstract class Proprietaire implements java.io.Serializable
 	* @return logement la liste des logements
 	* @see Logement#toString()
 	*/
-	public String Logement()
+	public String toStringLogement()
 	{
 		String logement="";
 		for (Logement l : biens)
 		{
-			logement=logement+" "+this.nom+" "+l.toString();
+			logement=logement+this.nom+" "+l.toString()+"\n";
 		}
 		return logement;
 	}

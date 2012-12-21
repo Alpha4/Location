@@ -16,6 +16,11 @@ public class Particulier extends Proprietaire
 		super(nom,"Particulier",0);
 	}
 	
+	public Particulier ()
+	{
+		this("vide");
+	}
+	
 	public void add(Logement logement)
 	{
 		if (getBiens().size()==0)

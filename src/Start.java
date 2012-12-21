@@ -10,119 +10,48 @@ intiales des propriétaires et réservations
 public class Start
 {
 
-	public static void serializer(ListeProprio proprios,ListeResa reservations)
-	{
-		try 
-		{
-			FileOutputStream fichier = new FileOutputStream("ossau.ser");
-			ObjectOutputStream oos = new ObjectOutputStream(fichier);
-			oos.writeObject(proprios);
-			oos.writeObject(reservations);
-			oos.flush();
-			oos.close();
-		}
-		catch (java.io.IOException e) 
-		{
-			e.printStackTrace();
-		}
-	}
-	
-	public static void deserializer(ListeProprio proprios,ListeResa reservations) 
-	{
-		try
-		{
-			FileInputStream fichier = new FileInputStream("ossau.ser");
-			ObjectInputStream ois = new ObjectInputStream(fichier);
-			proprios= (ListeProprio) ois.readObject();
-			reservations=(ListeResa) ois.readObject();
-		} 
-		catch (java.io.IOException e)
-		{
-			e.printStackTrace();
-		}
-		catch (ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-	}
 	/* Programme principal*/
 	public static void main (String[] args)
 	{
 		/*Initialisation*/
-		ListeProprio proprios=new ListeProprio();
-		ListeResa reservations=new ListeResa();
+		ListeProprio listep=new ListeProprio();
+		ListeResa lister=new ListeResa();
 		Scanner sc= new Scanner(System.in);
 		
-		/*Menu*/
-		int choix=1;
-		do
-		{
-			System.out.println("*********MENU*********");
-			System.out.println("1) Créer propriétaire");
-			System.out.println("2) Créer et ajouter un logement à un propriétaire");
-			System.out.println("7) Sortie du programme");
-			System.out.print("Choix : ");
-			choix=sc.nextInt();
-			System.out.println("----------------------");
-			int type=1;
-			String nom="";
-			switch(choix)
-			{				
-				case 1:
-					do
-					{
-						System.out.println("Souhaitez vous créer : ");
-						System.out.println("1) Un particulier propriétaire");
-						System.out.println("2) Une entreprise propriétaire");
-						type=sc.nextInt();
-						System.out.print("Entrez le nom du nouveau propriétaire : ");
-						nom=sc.next();
-						switch(type)
-						{
-							case 1:
-								proprios.add(new Particulier(nom));
-							break;
-							
-							case 2:
-								proprios.add(new Entreprise(nom));
-							break;
-						}
-					}while (type!=1 && type !=2);					
-				break;
-				
-				case 2:
-					do
-					{
-						System.out.println("Souhaitez vous créer : ");
-						System.out.println("1) Un appartement");
-						System.out.println("2) Un chalet");
-						System.out.println("3) Une maison");
-						type=sc.nextInt();
-						System.out.print("Entrez l'adresse du logement : ");
-						String adresse=sc.next();
-						System.out.print("Entrez le prix fixe du logement : ");
-						int prix=sc.nextInt();
-						System.out.print("Saisissez le nom du propriétaire auquel l'ajouter : ");
-						nom=sc.next();
-						
-						switch(type)
-						{
-							case 1: //appartement
-								proprios.get(nom).add(new Appartement(adresse,prix));
-							break;
-							
-							case 2: //chalet
-								proprios.get(nom).add(new Chalet(adresse,prix));
-							break;
-							
-							case 3: //maison
-								proprios.get(nom).add(new Maison(adresse,prix));
-							break;
-						}
-					}while (type>0 && type<4);
-				break;
-			}
+		
+		/*Création de queqlues particuliers*/
+		listep.add(new Particulier("Gandon"));
+		listep.add(new Particulier("Brisseau"));
+		listep.add(new Particulier("Fantasio"));
+		listep.add(new Particulier("Lennon"));
+		
+		/*Création de queqlues entreprises*/
+		listep.add(new Entreprise("EthoCorps"));
+		listep.add(new Entreprise("GuudeInc"));
+		listep.add(new Entreprise("MonsterCie"));
+		
+		/*Ajout de logement aux particuliers*/
+		listep.get("Gandon").add(new Appartement("12, rue Werner Heisenberg",1750));
+		listep.get("Gandon").add(new Appartement("14, rue Néron",150));
+		listep.get("Brisseau").add(new Chalet("21, avenue Douglas Adams",250));
+		listep.get("Fantasio").add(new Appartement("15, rue ",150));
+		listep.get("Lennon").add(new Maison("42, boulevard Bordeciel",500));
+		
+		/*Ajout de logement aux entreprises*/
+		listep.get("EthoCorps").add(new Appartement("1, rue Redstone",200));
+		listep.get("EthoCorps").add(new Maison("13, avenue Mindcrack",400));
+		listep.get("EthoCorps").add(new Chalet("16, rue Alfred Nobel",500));
+		listep.get("GuudeInc").add(new Maison("1, avenue Mindcrack",500));
+		listep.get("GuudeInc").add(new Chalet("3, avenue Mindcrack",500));
+		listep.get("MonsterCie").add(new Chalet("35, boulevard Bob Wazowski",500));
+		listep.get("MonsterCie").add(new Chalet("5, avenue Jacques Sullivan",500));
+		
+		
+		System.out.println(listep.toString());
+		System.out.println(listep.toStringLogement());
+		
+		/*Création des fichier*/
+		listep.serializer();
+		lister.serializer();
 		}
-		while(choix>0 && choix<7);
-	}
 }	

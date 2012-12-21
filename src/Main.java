@@ -17,33 +17,23 @@ import java.io.*;
 */
 public class Main
 {
-
-	public static void serializer(ListeProprio proprios,ListeResa reservations)
+	/* Programme principal*/
+	public static void main (String[] args)
 	{
-		try 
-		{
-			FileOutputStream fichier = new FileOutputStream("ossau.ser");
-			ObjectOutputStream oos = new ObjectOutputStream(fichier);
-			oos.writeObject(proprios);
-			oos.writeObject(reservations);
-			oos.flush();
-			oos.close();
-		}
-		catch (java.io.IOException e) 
-		{
-			e.printStackTrace();
-		}
-	}
-	
-	public static void deserializer(ListeProprio proprios,ListeResa reservations) 
-	{
+		/*Initialisation*/
+		ListeProprio listep = new ListeProprio();
+		ListeResa lister = new ListeResa();
+		
 		try
 		{
-			FileInputStream fichier = new FileInputStream("ossau.ser");
-			ObjectInputStream ois = new ObjectInputStream(fichier);
-			proprios= (ListeProprio) ois.readObject();
-			reservations=(ListeResa) ois.readObject();
-		} 
+			FileInputStream f1 = new FileInputStream("reserv.ser");
+			ObjectInputStream ois1 = new ObjectInputStream(f1);
+			lister = (ListeResa) ois1.readObject();
+		
+			FileInputStream f2=new FileInputStream("proprios.ser");
+			ObjectInputStream ois2 = new ObjectInputStream(f2);
+			listep= (ListeProprio) ois2.readObject();
+		}
 		catch (java.io.IOException e)
 		{
 			e.printStackTrace();
@@ -52,15 +42,8 @@ public class Main
 		{
 			e.printStackTrace();
 		}
-	}
-
-	/* Programme principal*/
-	public static void main (String[] args)
-	{
-		/*Initialisation*/
-		ListeProprio proprios = new ListeProprio();
-		ListeResa resas = new ListeResa();
-		deserializer(proprios,resas);
+		
+		
 		Scanner sc= new Scanner(System.in);
 		
 		/*Menu*/
@@ -82,11 +65,11 @@ public class Main
 				break;
 					
 				case	2 : //Affichage des réservations en cours
-					System.out.println(resas.toString());
+					System.out.println(lister.toString());
 				break;
 					
 				case	3 : //Affichage des propriétaires et leur chiffre d'affaire
-					System.out.println(proprios.toString());
+					System.out.println(listep.toString());
 				break;
 			}
 		}while(choix>0 && choix<7);
