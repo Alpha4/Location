@@ -62,7 +62,19 @@ public class Main
 			switch(choix)
 			{				
 				case	1 : // Demande de réservation
-					System.out.println("LoL too");
+					System.out.println("Combien d'adultes ?");
+					int nba=sc.nextInt();
+					System.out.println("Combien d'enfants ?");
+					int nbe=sc.nextInt();
+					System.out.println("Quel le nom du locataire ?");
+					String nomloc=sc.next();
+					Reservation r=proposition(nba,nbe,nomloc).propositionToString();
+					System.out.println("Valider ? (y/n)");
+					String yn=sc.next();
+					if (yn="y")
+					{
+						lister.add(r);
+					}
 				break;
 					
 				case	2 : //Affichage des réservations en cours

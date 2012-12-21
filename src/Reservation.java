@@ -41,7 +41,7 @@ public abstract class Reservation implements java.io.Serializable
 		return this.nomloc+" "+prix;
 	}
 	
-	/** Méthode toString retournant le nom du
+	/** Méthode propositionToString retournant le nom du
 	*	locataire principal et le prix
 	* @return nomloc le nom du locataire principal
 	* @return prix le prix du logement
