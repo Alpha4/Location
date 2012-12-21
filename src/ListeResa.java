@@ -33,6 +33,9 @@ public class ListeResa implements java.io.Serializable
 		resas.add(res);
 	}
 	
+	/** Méthode serializer
+	* 	écrit l'objet dans un fichier  
+	*/
 	public void serializer()
 	{
 		try 
